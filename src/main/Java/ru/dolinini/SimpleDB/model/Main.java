@@ -10,35 +10,33 @@ public class Main {
         PersonService personService=new PersonService();
 
 
-//        Person person1=new Person("Abba","Cruik");
-//        Person person2=new Person("Gugo","Zirca");
+        Person person1=new Person("Abba","Cruik");
+        Person person2=new Person("Gugo","Zirca");
 
-//        personService.savePerson(person1);
-//        personService.savePerson(person2);
+        personService.savePerson(person1);
+        personService.savePerson(person2);
 
-//        PersonInterests interest1=new PersonInterests("boiling eggs");
-//        PersonInterests interest2=new PersonInterests("killing people with boiled eggs");
+        PersonThing thing1=new PersonThing("boiled egg");
+        PersonThing thing2=new PersonThing("someone killed by boiled egg");
+        PersonThing thing3=new PersonThing("fresh meat");
 
-//        Person person1=personService.findPersonById(13);
-//        Person person2=personService.findPersonById(14);
+        person1.addThing(thing1);
+        person1.addThing(thing2);
+        person2.addThing(thing3);
 
-//        person1.addInterests(interest1);
-//        person2.addInterests(interest2);
-
-//        personService.updatePerson(person1);
-//        personService.updatePerson(person2);
+        personService.updatePerson(person1);
+        personService.updatePerson(person2);
 
 //        personService.deletePerson(person1);
 //        personService.deletePerson(person2);
+
+        System.out.println(personService.findAllPersons());
+
           List<Person> list=personService.findAllPersons();
           for (Person person: list) {
               personService.deletePerson(person);
           }
 
-          System.out.println(personService.findAllPersons());
-          System.out.println(personService.findPersonById(14));
-//        personService.deletePersonById(9);
-//        personService.deletePersonById(10);
 
 
     }

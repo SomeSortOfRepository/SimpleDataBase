@@ -3,11 +3,11 @@ package ru.dolinini.SimpleDB.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "personinterests")
-public class PersonInterests {
+@Table(name = "personthings")
+public class PersonThing {
 
     @Column
-    private String interest;
+    private String thing;
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -17,20 +17,20 @@ public class PersonInterests {
     @JoinColumn(name = "person_id")
     Person person;
 
-    public PersonInterests() {
+    public PersonThing() {
     }
 
-    public PersonInterests(String interest) {
-        this.interest = interest;
+    public PersonThing(String thing) {
+        this.thing = thing;
     }
 
 
-    public String getInterest() {
-        return interest;
+    public String getThing() {
+        return thing;
     }
 
-    public void setInterest(String interest) {
-        this.interest = interest;
+    public void setThing(String interest) {
+        this.thing = interest;
     }
 
     public Person getPerson() {
@@ -43,8 +43,9 @@ public class PersonInterests {
 
     @Override
     public String toString() {
-        return "PersonInterests{" +
-                "interest='" + interest + '\'' +
+        return "PersonThing{" +
+                "thing='" + thing + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

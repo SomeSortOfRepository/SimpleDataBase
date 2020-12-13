@@ -3,7 +3,7 @@ package ru.dolinini.SimpleDB.util;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import ru.dolinini.SimpleDB.model.PersonInterests;
+import ru.dolinini.SimpleDB.model.PersonThing;
 import ru.dolinini.SimpleDB.model.Person;
 
 
@@ -19,7 +19,7 @@ public class HibernateSessionFactoryUtil {
             try {
                 Configuration configuration=new Configuration().configure();
                 configuration.addAnnotatedClass(Person.class);
-                configuration.addAnnotatedClass(PersonInterests.class);
+                configuration.addAnnotatedClass(PersonThing.class);
                 StandardServiceRegistryBuilder builder=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory= configuration.buildSessionFactory(builder.build());
 

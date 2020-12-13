@@ -2,9 +2,7 @@ package ru.dolinini.SimpleDB.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="persons")
@@ -21,7 +19,7 @@ public class Person {
     private String oneWordDescription;
 
     @OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    List<PersonInterests> interests;
+    List<PersonThing> things;
 
     public Person() {
     }
@@ -29,17 +27,17 @@ public class Person {
     public Person(String name, String sureName) {
         this.name = name;
         this.sureName = sureName;
-        interests=new ArrayList<>();
+        things=new ArrayList<>();
     }
 
 
-    public List<PersonInterests> getInterests() {
-        return interests;
+    public List<PersonThing> getThings() {
+        return things;
     }
 
-    public void addInterests(PersonInterests interest) {
-        interest.setPerson(this);
-        this.interests.add(interest);
+    public void addThing(PersonThing thing) {
+        thing.setPerson(this);
+        this.things.add(thing);
     }
 
     public int getId() {
@@ -77,7 +75,7 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", sureName='" + sureName + '\'' +
                 ", oneWordDescription='" + oneWordDescription + '\'' +
-                ", interests=" + interests +
+                ", things=" + things +
                 '}';
     }
 }
