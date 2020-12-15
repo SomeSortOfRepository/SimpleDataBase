@@ -14,7 +14,7 @@ public class PersonThing {
     private int id;
 
     @ManyToOne ()
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id" )
     Person person;
 
     public PersonThing() {

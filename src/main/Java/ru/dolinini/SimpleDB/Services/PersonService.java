@@ -1,13 +1,15 @@
 package ru.dolinini.SimpleDB.Services;
 
-import ru.dolinini.SimpleDB.Dao.PersonsDao;
+import ru.dolinini.SimpleDB.Dao.Dao;
+import ru.dolinini.SimpleDB.Dao.PersonsEntityManagerDaoImpl;
 import ru.dolinini.SimpleDB.model.Person;
 
 import java.util.List;
 
+
 public class PersonService {
 
-    private PersonsDao personsDao=new PersonsDao();
+    private Dao<Person> personsDao=new PersonsEntityManagerDaoImpl();
 
     public Person findPersonById(int id) {
         return personsDao.findById(id);
@@ -26,7 +28,9 @@ public class PersonService {
         personsDao.save(person);
     }
     public List<Person> findAllPersons () {
-        return personsDao.getAllPersons();
+        return personsDao.findAll();
     }
+
+
 
 }
